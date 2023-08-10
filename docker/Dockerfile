@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu/jre
 #SSH 서버 설치
 RUN apt-get update
 RUN apt-get install -y openssh-server
@@ -14,5 +14,6 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 WORKDIR /work
 #SSH 포트 노출
 EXPOSE 22
+EXPOSE 8080
 #SSH 서비스 실행
 CMD ["/usr/sbin/sshd", "-D"]
