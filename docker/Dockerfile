@@ -1,4 +1,4 @@
-FROM ubuntu/jre:8-22.04_11
+FROM eclipse-temurin
 #SSH 서버 설치
 RUN apt-get update
 RUN apt-get install -y openssh-server
