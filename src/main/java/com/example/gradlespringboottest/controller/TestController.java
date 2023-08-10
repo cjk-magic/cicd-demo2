@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/test")
+    @GetMapping("/")
     public String test() {
-        return "jenkins_gradle_build_example";
+        return "jenkins_gradle_build_example!!!";
     }
 }
