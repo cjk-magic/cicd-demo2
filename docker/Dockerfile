@@ -6,7 +6,7 @@ RUN apt-get install -y git
 RUN apt-get clean
 RUN mkdir /var/run/sshd
 #root 암호 설정
-RUN echo 'root:root' | chpasswd
+RUN echo 'root:1234' | chpasswd
 #sshd_config 설정 변경
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
@@ -14,6 +14,6 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 WORKDIR /work
 #SSH 포트 노출
 EXPOSE 22
-EXPOSE 8080
+EXPOSE 9090
 #SSH 서비스 실행
 CMD ["/usr/sbin/sshd", "-D"]
