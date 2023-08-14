@@ -4,13 +4,18 @@ services:
     image: jenkins/jenkins:lts
     container_name: jenkins-server
     restart: always
+    networks:
+      - network
     volumes:
-      - jenkins_home:/var/jenkins_home
+      - home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8080:8080
-      - 50000:50000  
+      - 50000:50000
     environment:
       TZ: "Asia/Seoul"
 volumes:
-   jenkins_home:
+   home:
+networks:
+   network:
+      driver: bridge
