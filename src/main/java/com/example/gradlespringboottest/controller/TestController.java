@@ -8,6 +8,6 @@ public class TestController {
 
     @GetMapping("/test")
     public String test() {
-        return "<html><body><h3>korea!! jenkins_gradle_build_example!!!</h3></body></html>";
+        return "<html><body><h3> jenkins_gradle_build_example!!!</h3></body></html>";
     }
 }
